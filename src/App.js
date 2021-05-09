@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
+import './App.css'
+import { history } from './utils/history'
+import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
+import ClientProfile from './pages/ClientProfile'
+import Order from './pages/Order'
+import RestaurantProfile from './pages/RestaurantProfile'
+
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      <Switch>
+        <Route exact path='/signup'>
+          <SignUp/>
+        </Route>
+        <Route exact path='/signin'>
+          <SignIn/>
+        </Route>
+        <Route exact path='/clientprofile'>
+          <ClientProfile/>
+        </Route>
+        <Route exact path='/restaurantprofile'>
+          <RestaurantProfile/>
+        </Route>
+        <Route exact path='/order'>
+          <Order/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
