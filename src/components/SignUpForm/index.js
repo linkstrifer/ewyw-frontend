@@ -7,8 +7,6 @@ import { changeDirection, changeEmail, changeError, changeName, changePassword, 
 import { useDispatch, useSelector } from 'react-redux'
 
 
-
-
 export default function SignUpForm(){
 
   const {
@@ -118,15 +116,12 @@ export default function SignUpForm(){
         id='selectRole'
         name='userType'
         label='Escoge tu rol'
-        options={['Selecciona una opcion', 'Cliente', 'Restaurante']}
+        options={[
+          {_id:'client', name:'Cliente'},
+          {_id:'restaurant', name:'Restaurante'}
+        ]}
         onChange={(e) => dispatch(changeUserType(e.target.value))}
       />
-      {/* <label htmlFor='selectRol' name='userType'>Escoge tu rol</label>
-      <select id='selectRol'>
-        <option value=''>Selecciona una opcion</option>
-        <option value='client'>Cliente</option>
-        <option value='restaurant'>Restaurante</option>
-      </select> */}
       {error && <p> {error} </p>}
       <Button
         type='submit'

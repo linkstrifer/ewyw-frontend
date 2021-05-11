@@ -10,7 +10,8 @@ export default function Select({id, name, onChange, label, options}){
         name={name}
         onChange={onChange}
       >
-        { !!options && options.length > 0 && options.map((el, index ) =>( <option key={index} value={el.toLowerCase()}>{el}</option> ))}
+        <option>Selecciona una opción</option>
+        { !!options && options.length > 0 && options.map((el, index ) =>( <option key={index} value={el._id}>{el.name}</option> ))}
       </select>
     </>
   )
