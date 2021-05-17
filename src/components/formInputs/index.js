@@ -1,17 +1,16 @@
 import React from 'react'
 
-export default function FormInputs({ children, type, name, id, value, onChange }){
-
+export default function FormInputs({ children, type, name, value, onChange, ref }) {
   return (
-    <>
-      <label htmlFor={id}>{children}</label>
+    <label>
+      <span>{children}</span>
       <input
+        ref={ref}
         type={type}
         name={name}
-        id={id}
         value={value}
         onChange={onChange}
       />
-    </>
+    </label>
   )
 }

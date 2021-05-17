@@ -43,6 +43,8 @@ export default function SignUpForm(){
               password,
               email,
               userType,
+              direction,
+              phone,
             },
           })
 

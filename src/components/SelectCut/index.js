@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Select({id, name, onChange, label, options, type}){
+export default function SelectCut({id, name, onChange, label, options}){
 
   return(
     <>
@@ -11,7 +11,7 @@ export default function Select({id, name, onChange, label, options, type}){
         onChange={onChange}
       >
         <option>Selecciona una opción</option>
-        { !!options && options.length > 0 && options.map((el, index ) =>( <option key={index} value={el._id}>{el[type]}</option> ))}
+        { !!options && options.length > 0 && options.map((el, index ) =>( <option key={index} value={el}>{el}</option> ))}
       </select>
     </>
   )
