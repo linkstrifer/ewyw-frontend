@@ -5,14 +5,14 @@ const FOODS_SUCCESS = 'FOODS_SUCCESS'
 const FOODS_ERROR = 'FOODS_ERROR'
 const FOODS_FINISH = 'FOODS_FINISH'
 
-export function getFoods(){
+export function getFoods(restaurantId){
   return async function(dispatch){
     dispatch({ type: FOODS_LOADING })
     try {
       const { data } = await axios({
         method: 'GET',
         baseURL: process.env.REACT_APP_SERVER_URL,
-        url: '/foods'
+        url: `/foods/${restaurantId}`
       })
       dispatch({ type: FOODS_SUCCESS, payload: data})
     } catch(error){

@@ -5,7 +5,6 @@ import { signUpReducer } from './signUpReducer'
 import { signInReducer } from './singInReducer'
 import { clientReducer } from './clientReducer'
 import { restaurantReducer } from './restaurantReducer'
-import { drinkReducer } from './drinkReducer'
 import { foodReducer } from './foodReducer'
 
 
@@ -14,9 +13,9 @@ const appReducer = combineReducers({
   signInReducer,
   clientReducer,
   restaurantReducer,
-  drinkReducer,
   foodReducer,
 })
+
 
 const rootReducer = (state, action) => {
   if (action.type === 'USER_LOGOUT'){

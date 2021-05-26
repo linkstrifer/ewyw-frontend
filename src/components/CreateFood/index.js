@@ -2,9 +2,9 @@ import { useDispatch } from "react-redux"
 import  FormInputs  from '../formInputs'
 import  Button  from '../Button'
 import {
-  changeFoodName, changeFoodCut,
-  changeFoodPreparation, changeFoodQuantity,
-  changeFoodPrice } from '../../store/restaurantReducer'
+  changeFoodName,
+  changeFoodLabel,
+  changeFoodPrice, } from '../../store/restaurantReducer'
 
 
 export default function CreateFood(){
@@ -22,28 +22,12 @@ export default function CreateFood(){
         Nombre
       </FormInputs>
       <FormInputs
-        id='foodCut'
+        id='foodLabel'
         type='text'
         name='foodCut'
-        onChange={e => dispatch(changeFoodCut(e.target.value))}
+        onChange={e => dispatch(changeFoodLabel(e.target.value))}
       >
-        Tipo de corte
-      </FormInputs>
-      <FormInputs
-        id='foodPreparation'
-        type='text'
-        name='foodPreparation'
-        onChange={e => dispatch(changeFoodPreparation(e.target.value))}
-      >
-        Tipo de preparacion
-      </FormInputs>
-      <FormInputs
-        id='foodQuantity'
-        type='text'
-        name='foodQuantity'
-        onChange={e => dispatch(changeFoodQuantity(e.target.value))}
-      >
-        Cantidad
+        Tipo
       </FormInputs>
       <FormInputs
         id='foodPrice'
@@ -51,7 +35,7 @@ export default function CreateFood(){
         name='foodPrice'
         onChange={e => dispatch(changeFoodPrice(e.target.value))}
       >
-        Precio:
+        Precio
       </FormInputs>
       <Button
         type='submit'

@@ -1,0 +1,22 @@
+.restaurantsCard{
+  background-color: #ECA72C;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px;
+}
+
+.restaurantList{
+  background-image: url('./restaurantes1.png');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tittleList{
+  color:aliceblue;
+}

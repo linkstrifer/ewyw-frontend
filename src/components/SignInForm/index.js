@@ -5,6 +5,7 @@ import Button from '../Button'
 import { changeEmail, changePassword, changeError } from '../../store/singInReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import './styles.css'
 
 
 export default function SignInForm(){
@@ -36,7 +37,11 @@ export default function SignInForm(){
 
         localStorage.setItem('token', data.token)
         localStorage.setItem('userKind', data.userKind)
-        history.push('/clientprofile')
+        if(data.userKind === 'restaurant'){
+          history.push('/restaurantprofile')
+        } else {
+          history.push('/restaurantslist')
+        }
 
       } catch(error){
         dispatch(changeError(error.message))
@@ -47,31 +52,37 @@ export default function SignInForm(){
   const dispatch = useDispatch()
 
   return (
-    <form onSubmit={handleSubmit}>
-      <FormInputs
-        id='email'
-        type='email'
-        name='email'
-        onChange={e => dispatch(changeEmail(e.target.value))}
-        value={email}
-      >
-        Email
-      </FormInputs>
-      <FormInputs
-        id='password'
-        type='password'
-        name='password'
-        onChange={e => dispatch(changePassword(e.target.value))}
-        value={password}
-      >
-        Contraseña
-      </FormInputs>
-      {error && <p> {error} </p>}
-      <Button
-        type='submit'
-      >
-        Iniciar sesion
-      </Button>
-    </form>
+    <div className='backgroundImage'>
+      <div className='signInContainer'>
+        <form className='signin' onSubmit={handleSubmit}>
+          <div className='inputsProfile'>
+            <FormInputs
+              id='email'
+              type='email'
+              name='email'
+              onChange={e => dispatch(changeEmail(e.target.value))}
+              value={email}
+            >
+              Email
+            </FormInputs>
+            <FormInputs
+              id='password'
+              type='password'
+              name='password'
+              onChange={e => dispatch(changePassword(e.target.value))}
+              value={password}
+            >
+              Contraseña
+            </FormInputs>
+            {error && <p> {error} </p>}
+            <Button
+              type='submit'
+            >
+              Iniciar sesion
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
   )
 }
